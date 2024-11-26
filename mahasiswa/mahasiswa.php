@@ -177,119 +177,68 @@ switch ($aksi) {
 
             <div class="row">
                 <div class="col-6">
-                    <form>
-                        <div class="row mb-3">
-                            <label for="nim" class="col-sm-2 col-form-label">NIM</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="nim" id="nim" class="form-control" value="<?= $data_mhs['nim'] ?>" readonly required autofocus>
-                            </div>
+                    <div class="row mb-3">
+                        <label for="nim" class="col-sm-2 col-form-label">NIM</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="nim" id="nim" class="form-control" value="<?= $data_mhs['nim'] ?>" readonly required autofocus>
                         </div>
-                        <div class="row mb-3">
-                            <label for="nama" class="col-sm-2 col-form-label">Nama</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="nama" id="nama" class="form-control" value="<?= $data_mhs['nama'] ?>" required>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">Tanggal Lahir</label>
-                            <div class="col-sm-10">
-                                <div class="row">
+                    </div>
 
-                                    <div class="col-4">
-                                        <select name="tgllahir" class="form-control">
-                                            <option value="">--TGL--</option>
-                                            <?php
-                                            //counted, uncounted
-                                            for ($i = 0; $i <= 31; $i++) {
-                                                $selected = ($tgl[2] == $i) ? 'selected' : ''; //ternary
-                                                echo "<option value=" . $i . " $selected>" . $i . "</option>";
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                    <div class="col-4">
-                                        <select name="bulan" class="form-control">
-                                            <option value="">--MM--</option>
-                                            <?php
-                                            $bulan = [1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-                                            foreach ($bulan as $key => $namaBulan) {
-                                                $selected = ($tgl[1] == $key) ? 'selected' : ''; //ternary
-                                                echo "<option value=" . ($key) . " $selected>" . $namaBulan . "</option>";
-                                                $i++;
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                    <div class="col-4">
-                                        <select name="tahun" class="form-control">
-                                            <option value="">--YY--</option>
-                                            <?php
-                                            for ($i = date('Y'); $i >= 1900; $i -= 1) {
-                                                $selected = ($tgl[0] == $i) ? 'selected' : ''; //ternary
-                                                echo "<option value=" . ($i) . " $selected>" . $i . "</option>";
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
+                    <div class="row mb-3">
+                        <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="nama" id="nama" class="form-control" value="<?= $data_mhs['nama'] ?>" required>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label">Tanggal Lahir</label>
+                        <div class="col-sm-10">
+                            <div class="row">
+                                <div class="col-4">
+                                    <select name="tgllahir" class="form-control">
+                                        <option value="">--TGL--</option>
+                                        <?php
+                                        for ($i = 1; $i <= 31; $i++) {
+                                            $selected = ($i == $tgl[0]) ? "selected" : "";
+                                            echo "<option value='$i' $selected>$i</option>";
+                                        }
+                                        ?>
+                                    </select>
                                 </div>
-
-                            </div>
-
-
-                        </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
-                            <div class="col-sm-10">
-                                <input type="radio" name="jekel" value="L" class="form-check-input" <?= ($data_mhs['jenis'] == 'L') ? 'checked' : '' ?>>Laki-Laki
-                                <input type="radio" name="jekel" value="P" class="form-check-input" <?= ($data_mhs['jenis'] == 'P') ? 'checked' : '' ?>>Perempuan
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="email" class="col-sm-2 col-form-label">Email</label>
-                            <div class="col-sm-10">
-                                <input type="email" id="email" name="email" id="email" class="form-control" value="<?= $data_mhs['email'] ?>" required>
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label for="nohp" class="col-sm-2 col-form-label">No. Telepon</label>
-                            <div class="col-sm-10">
-                                <input type="tel" class="form-control" id="nohp" name="nohp" value="<?= $data_mhs['nohp'] ?>" required>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">Hobi</label>
-                            <div class="col-sm-10">
-                                <input type="checkbox" name="hobi[]" value="Basket" <?php if (in_array('Basket', $hobies)) echo 'checked' ?>> Basket
-                                <input type="checkbox" name="hobi[]" value="Game" <?php if (in_array('Game', $hobies)) echo 'checked' ?>> Game
-                                <input type="checkbox" name="hobi[]" value="Musik" <?php if (in_array('Musik', $hobies)) echo 'checked' ?>> Musik
-                                <input type="checkbox" name="hobi[]" value="Traveling" <?php if (in_array('Traveling', $hobies)) echo 'checked' ?>> Traveling
+                                <div class="col-4">
+                                    <select name="bulan" class="form-control">
+                                        <option value="">--MM--</option>
+                                        <?php
+                                        foreach ($bulan as $key => $namaBulan) {
+                                            $selected = ($key == $tgl[1]) ? "selected" : "";
+                                            echo "<option value='$key' $selected>$namaBulan</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="col-4">
+                                    <select name="tahun" class="form-control">
+                                        <option value="">--YY--</option>
+                                        <?php
+                                        for ($i = date('Y'); $i >= 1900; $i--) {
+                                            $selected = ($i == $tgl[2]) ? "selected" : "";
+                                            echo "<option value='$i' $selected>$i</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="mb-3 row">
-                            <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
-                            <div class="col-sm-10">
-                                <textarea class="form-control" id="alamat" name="alamat" rows="3" required> <?= $data_mhs['alamat'] ?> </textarea>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label class="col-sm-2 col-form-label"></label>
-                            <div class="col-sm-10">
-                                <button type="submit" name="Proses" value="Proses" class="btn btn-primary">update</button>
-                            </div>
-                        </div>
-
-                    </form>
-
+                    <!-- Continue with other fields -->
+                    <button type="submit" name="Proses" value="Update" class="btn btn-primary">Update</button>
                 </div>
-
             </div>
-            </div>
-
         </form>
-<?php
+
+    <?php
         break;
 }
 ?>
