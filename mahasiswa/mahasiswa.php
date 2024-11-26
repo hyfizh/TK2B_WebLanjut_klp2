@@ -22,7 +22,7 @@ switch ($aksi) {
                     <th>Aksi</th>
                 </tr>
                 <?php
-                include 'koneksi.php';
+                include 'admin/koneksi.php';
                 $stmt = $db->query("SELECT * FROM mahasiswa");
                 $no = 1;
                 while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -164,7 +164,7 @@ switch ($aksi) {
         break;
 
     case 'edit':
-        include 'koneksi.php';
+        include 'admin/koneksi.php';
         $nim = $_GET['nim'];
         $stmt = $db->prepare("SELECT * FROM mahasiswa WHERE nim = :nim");
         $stmt->execute(['nim' => $nim]);
