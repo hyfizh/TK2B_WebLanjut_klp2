@@ -1,6 +1,6 @@
 <?php
 // Memasukkan file koneksi
-include 'koneksi.php';
+include 'admin/koneksi.php';
 
 // Menentukan halaman yang ingin ditampilkan
 $page = isset($_GET['p']) ? $_GET['p'] : 'home';
