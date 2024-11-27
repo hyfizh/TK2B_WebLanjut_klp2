@@ -5,7 +5,7 @@ switch ($aksi) {
 ?>
         <div class="row">
             <div class="col-10">
-                <a href="index.php?p=mhs&aksi=input" class="btn btn-primary mb-3">
+                <a href="index.html?p=mhs&aksi=input" class="btn btn-primary mb-3">
                     <i class="bi bi-person-add"></i> Tambah Mahasiswa
                 </a>
             </div>
@@ -37,7 +37,7 @@ switch ($aksi) {
                         <td><?= htmlspecialchars($data['alamat']) ?></td>
                         <td><?= htmlspecialchars($data['jenis']) ?></td>
                         <td>
-                            <a href="index.php?p=mhs&aksi=edit&nim=<?= urlencode($data['nim']) ?>" class="btn btn-success">
+                            <a href="index.html?p=mhs&aksi=edit&nim=<?= urlencode($data['nim']) ?>" class="btn btn-success">
                                 <i class="bi bi-pen-fill"></i> Edit
                             </a>
                             <a href="proses_mahasiswa.php?proses=delete&nim=<?= urlencode($data['nim']) ?>" class="btn btn-danger"
