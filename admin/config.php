@@ -20,10 +20,10 @@ function loadEnv($file)
 loadEnv(__DIR__ . '/.env');
 
 // Ambil data koneksi dari .env
-$host = $_ENV['DB_HOST'];
-$dbname = $_ENV['DB_NAME'];
-$username = $_ENV['DB_USER'];
-$password = $_ENV['DB_PASS'];
+$host = $_ENV['sql105.infinityfree.com'];
+$dbname = $_ENV['if0_37816661_pdo_kelompok2'];
+$username = $_ENV['if0_37816661'];
+$password = $_ENV['T4HxGh8S0f'];
 
 try {
     // Buat koneksi menggunakan PDO
