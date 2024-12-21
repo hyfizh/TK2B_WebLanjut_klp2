@@ -28,14 +28,14 @@ switch ($aksi) {
                 while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 ?>
                     <tr>
-                        <td><?php echo $no ?></td>
-                        <td><?= htmlspecialchars($data['nim']) ?></td>
-                        <td><?= htmlspecialchars($data['nama']) ?></td>
-                        <td><?= htmlspecialchars($data['email']) ?></td>
-                        <td><?= htmlspecialchars($data['nohp']) ?></td>
-                        <td><?= htmlspecialchars($data['hobi']) ?></td>
-                        <td><?= htmlspecialchars($data['alamat']) ?></td>
-                        <td><?= htmlspecialchars($data['jenis']) ?></td>
+                       <td><?php echo $no ?></td>
+                        <td><?= $data['nim'] ?></td>
+                        <td><?= $data['nama'] ?></td>
+                        <td><?= $data['email'] ?></td>
+                        <td><?= $data['nohp'] ?></td>
+                        <td><?= $data['hobi'] ?></td>
+                        <td><?= $data['alamat'] ?></td>
+                        <td><?= $data['jenis'] ?></td>
                         <td>
                             <a href="index.php?p=mhs&aksi=edit&nim=<?= urlencode($data['nim']) ?>" class="btn btn-success">
                                 <i class="bi bi-pen-fill"></i> Edit
